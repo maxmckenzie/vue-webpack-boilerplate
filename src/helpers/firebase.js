@@ -2,22 +2,26 @@ import firebase from 'firebase'
 
 export function checkUser (loggedIn, user) {
   if (loggedIn) {
-    let authenticated = true
+    const authenticated = true
     return authenticated
   } else {
-    let authenticated = false
+    const authenticated = false
     return authenticated
   }
+}
+
+export function authenticatedUser () {
+  return firebase.auth().currentUser
 }
 
 export function fireInit (func) {
   // !!!! Replace with your own Firebase settings !!!!!
   var config = {
-    apiKey: '',
-    authDomain: '',
-    databaseURL: '',
-    storageBucket: '',
-    messagingSenderId: ''
+    apiKey: 'AIzaSyBoQK5_QZSp52sZHHTQgu59BO6hblUJ5Yk',
+    authDomain: 'trading-bot-development.firebaseapp.com',
+    databaseURL: 'https://trading-bot-development.firebaseio.com',
+    storageBucket: 'trading-bot-development.appspot.com',
+    messagingSenderId: '874572235372'
   }
   firebase.initializeApp(config)
 

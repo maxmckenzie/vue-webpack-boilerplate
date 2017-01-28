@@ -4,7 +4,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App'
-import { fireInit, checkUser } from './helpers/firebase'
+import { fireInit, checkUser, authenticatedUser } from './helpers/firebase'
 
 Vue.use(VueRouter)
 
@@ -26,6 +26,13 @@ const router = new VueRouter({
       require(['./components/Auth.vue'], resolve)
     }
   }, {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: function (resolve) {
+      require(['./components/Dashboard.vue'], resolve)
+    },
+    meta: { requiresAuth: true }
+  }, {
     path: '*',
     name: '404',
     component: function (resolve) {
@@ -34,8 +41,26 @@ const router = new VueRouter({
   }]
 })
 
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    if (!authenticatedUser()) {
+      next({
+        path: '/auth',
+        query: { redirect: to.fullPath }
+      })
+    } else {
+      next()
+    }
+  } else {
+    next() // make sure to always call next()!
+  }
+})
+
 new Vue({
   el: '#app',
+  authenticated: false,
   router,
   template: '<App/>',
   components: { App }
