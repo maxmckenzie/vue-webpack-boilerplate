@@ -12,7 +12,6 @@ export function checkUser (loggedIn, user) {
 
 export function fireInit (func) {
   // !!!! Replace with your own Firebase settings !!!!!
-  console.log(process.env.apiKey)
   var config = {
     apiKey: '',
     authDomain: '',
@@ -25,10 +24,10 @@ export function fireInit (func) {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       func(true, user)
-      console.log(user)
+      console.log(`User loggedIn object: ${user}`)
     } else {
       func(false)
-      console.log(user)
+      console.log(`No User object: ${user}`)
     }
   },
   function (error) {
