@@ -17,11 +17,11 @@ export function authenticatedUser () {
 export function fireInit (func) {
   // !!!! Replace with your own Firebase settings !!!!!
   var config = {
-    apiKey: 'AIzaSyBoQK5_QZSp52sZHHTQgu59BO6hblUJ5Yk',
-    authDomain: 'trading-bot-development.firebaseapp.com',
-    databaseURL: 'https://trading-bot-development.firebaseio.com',
-    storageBucket: 'trading-bot-development.appspot.com',
-    messagingSenderId: '874572235372'
+    apiKey: '',
+    authDomain: '',
+    databaseURL: '',
+    storageBucket: '',
+    messagingSenderId: ''
   }
   firebase.initializeApp(config)
 

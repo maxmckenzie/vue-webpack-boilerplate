@@ -15,6 +15,7 @@
 <script>
 import Hello from './components/Hello'
 import firebase from 'firebase'
+import router from './router'
 
 export default {
   name: 'app',
@@ -24,7 +25,8 @@ export default {
   methods: {
     userLogout () {
       firebase.auth().signOut().then(function () {
-        // Sign-out successful.
+        // Sign-out successfull
+        router.push('/')
       }, function (error) {
         console.log(error)
       })
