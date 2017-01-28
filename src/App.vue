@@ -25,7 +25,6 @@ export default {
   methods: {
     userLogout () {
       firebase.auth().signOut().then(function () {
-        // Sign-out successfull
         router.push('/')
       }, function (error) {
         console.log(error)

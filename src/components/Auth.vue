@@ -2,7 +2,7 @@
   <div class="auth">
     <h1>Auth</h1>
     <div v-if="authType === 'register'">
-      Signup
+      register
       <form v-on:submit.prevent="userSignUp(user)">
         <label for="email">email</label>
         <input id="email" v-model="user.email" type="email" placeholder="email">
@@ -10,12 +10,9 @@
 
         <label for="password">Password</label>
         <input id="password" v-model="user.password" type="password" placeholder="Password">
-        <br>
 
-        <label for="password">Confirm Password</label>
-        <input id="password" v-model="user.password" type="password" placeholder="Password">
         <br>
-        <button type="submit">Sign up</button>
+        <button type="submit">Register</button>
       </form>
       <button type="button" v-on:click="switchAuthType('login')">Login</button>
     </div>
@@ -38,6 +35,7 @@
 
 <script>
 import firebase from 'firebase'
+import router from '../router'
 
 export default {
   name: 'auth',
@@ -47,11 +45,12 @@ export default {
         email: null,
         password: null
       },
-      authType: null
+      authType: null,
+      authError: null
     }
   },
   methods: {
-    userSignUp (user) {
+    userSignUp (user, authError) {
       console.log(`userSignUp with ${user.email} ${user.password}`)
       firebase.auth().createUserWithEmailAndPassword(user.email, user.password).catch(function (error) {
         const errorCode = error.code
@@ -59,13 +58,14 @@ export default {
         console.log(errorCode + errorMessage)
       })
     },
-    userLogin (user) {
+    userLogin (user, authError) {
       console.log(`userLogin with ${user.email} ${user.password}`)
-      firebase.auth().signInWithEmailAndPassword(user.email, user.password).catch(function (error) {
+      firebase.auth().signInWithEmailAndPassword(user.email, user.password).catch(function (error, authError) {
         const errorCode = error.code
         const errorMessage = error.message
         console.log(errorCode + errorMessage)
       })
+      router.push('/dashboard')
     },
     switchAuthType (authType) {
       this.authType = authType
