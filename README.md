@@ -2,6 +2,11 @@
 
 > A Vue.js project
 
+Boilerplate based on the Vue webpack template with authentication via firebase.
+
+Tests
+[![CircleCI](https://circleci.com/gh/maxmckenzie/vue-webpack-boilerplate.svg?style=svg)](https://circleci.com/gh/maxmckenzie/vue-webpack-boilerplate)
+
 ## Build Setup
 
 ``` bash
