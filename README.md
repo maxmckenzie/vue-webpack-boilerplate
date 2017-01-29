@@ -35,15 +35,15 @@ npm test
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 # Roadmap
-*[] Test Authentication
-*[] Test Routes
-*[] Add Vuex store
-*[] Sync Vuex store with firebase
-*[] Add test for Vuex store
-*[] Add example CRUD Component to view
+- Test Authentication
+- Test Routes
+- Add Vuex store
+- Sync Vuex store with firebase
+- Add test for Vuex store
+- Add example CRUD Component to view
 
 /* Eventually */
-*[] Fork Vue-Webpack template
-*[] Port Boilerplate Codebase into fork
-*[] Add Airbnb Style Guide as option
-*[] Test vue-cli init and write some docs
+- Fork Vue-Webpack template
+- Port Boilerplate Codebase into fork
+- Add Airbnb Style Guide as option
+- Test vue-cli init and write some docs
