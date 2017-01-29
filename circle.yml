@@ -3,3 +3,6 @@ deployment:
     branch: master
     heroku:
       appname: vue-webpack-boilerplate
+dependencies:
+  pre:
+    - npm install npm@latest -g
