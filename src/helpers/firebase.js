@@ -17,11 +17,11 @@ export function authenticatedUser () {
 export function fireInit (func) {
   // !!!! Replace with your own Firebase settings !!!!!
   var config = {
-    apiKey: '',
-    authDomain: '',
-    databaseURL: '',
-    storageBucket: '',
-    messagingSenderId: ''
+    apiKey: 'AIzaSyCbCmlxGQ8TRqd4D-1zpT2YYmHK_d1duvU',
+    authDomain: 'vue-boilerplate.firebaseapp.com',
+    databaseURL: 'https://vue-boilerplate.firebaseio.com',
+    storageBucket: 'vue-boilerplate.appspot.com',
+    messagingSenderId: '790723666222'
   }
   firebase.initializeApp(config)
 
