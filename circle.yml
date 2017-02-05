@@ -6,3 +6,5 @@ deployment:
 dependencies:
   pre:
     - npm install npm@latest -g
+  post:
+    - npm run build
