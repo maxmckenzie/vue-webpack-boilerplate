@@ -3,8 +3,7 @@ deployment:
     branch: master
     commands:
       - git push git@heroku.com:vue-webpack-boilerplate.git $CIRCLE_SHA1:master
-      - heroku run npm install --app vue-webpack-boilerplate
-      - heroku run npm run build --app vue-webpack-boilerplate
+      - heroku run npm start --app vue-webpack-boilerplate
 dependencies:
   pre:
     - npm install npm@latest -g
