@@ -4,8 +4,10 @@ deployment:
     commands:
       - git push git@heroku.com:vue-webpack-boilerplate.git $CIRCLE_SHA1:master
       - heroku run npm start --app vue-webpack-boilerplate
+      - heroku run npm install babel -g
 dependencies:
   pre:
     - npm install npm@latest -g
+    - npm install babel -g
   post:
     - npm run build
